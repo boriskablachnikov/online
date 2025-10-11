@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Are You subscribed?</title>
     <script>
-        txt = document.getElementById("txt")
-        document.getElementById("btn").addEventListener("click", () => {
-            if (txt.value.match(/^UC[a-zA-Z0-9\-_]{22}$/))
-                document.getElementById("ytiframe").src = "https://www.youtube.com/subscribe_embed?channelid=" + txt.value
+        document.addEventListener("DOMContentLoaded", () => {
+            txt = document.getElementById("txt")
+            document.getElementById("btn").addEventListener("click", () => {
+                if (txt.value.match(/^UC[a-zA-Z0-9\-_]{22}$/))
+                    document.getElementById("ytiframe").src = "https://www.youtube.com/subscribe_embed?channelid=" + txt.value
+            })
         })
     </script>
     <style>
@@ -74,16 +76,16 @@
 
         #txt {
             width: min(70vw, 200px);
-            height:  min(8vw, 17px);
+            height: min(8vw, 17px);
             font-size: min(4vw, 10px);
         }
 
         #btn {
-            height:  min(8vw, 17px);
+            height: min(8vw, 17px);
             font-size: min(4vw, 10px);
         }
 
-        .inputcontainer{
+        .inputcontainer {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -99,7 +101,7 @@
     </div>
     <div class="container">
         <div class="iframecontainer">
-            <iframe id="ytiframe" src="https://www.youtube.com/subscribe_embed?channelid=">
+            <iframe id="ytiframe" src="https://www.youtube.com/subscribe_embed?channelid=UCnr5Y1vGbI5ERViMVMDh-hg">
             </iframe>
         </div>
         <div class="examplecontainer">
