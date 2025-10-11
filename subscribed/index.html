@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You subscribed?</title>
+    <script>
+        txt = document.getElementById("txt")
+        document.getElementById("btn").addEventListener("click", () => {
+            if (txt.value.match(/^UC[a-zA-Z0-9\-_]{22}$/))
+                document.getElementById("ytiframe").src = "https://www.youtube.com/subscribe_embed?channelid=" + txt.value
+        })
+    </script>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: min(6vw, 14px);
+        }
+
+        #ytiframe {
+            height: 10px;
+            width: 10px;
+            border: none;
+            transform: scale(50);
+            pointer-events: none;
+            user-select: none;
+            filter: sepia(1) contrast(2) saturate(7) hue-rotate(56deg) saturate(200) url(#colorMap) brightness(0.94) saturate(0.7)
+        }
+
+        .iframecontainer {
+            width: min(15vw, 70px);
+            height: calc(min(45vw, 210px) + 10px);
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .examplecontainer {
+            padding-left: min(7vw, 40px);
+        }
+
+        .example {
+            display: flex;
+            align-items: center;
+            padding: 2px;
+        }
+
+        .examplediv {
+            display: inline;
+            width: min(15vw, 70px);
+            height: min(15vw, 70px);
+        }
+
+        .sameaccount {
+            background-color: #eaea42;
+        }
+
+        .subscribed {
+            background-color: #33db33;
+        }
+
+        .notsubscribed {
+            background-color: #b70f0f;
+        }
+
+        .exampletext {
+            padding-left: min(5vw, 12px);
+        }
+
+        #txt {
+            width: min(70vw, 200px);
+            height:  min(8vw, 17px);
+            font-size: min(4vw, 10px);
+        }
+
+        #btn {
+            height:  min(8vw, 17px);
+            font-size: min(4vw, 10px);
+        }
+
+        .inputcontainer{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-bottom: min(8vw, 17px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inputcontainer">
+        <input id="txt" type="textbox">
+        <button id="btn">Check</button>
+    </div>
+    <div class="container">
+        <div class="iframecontainer">
+            <iframe id="ytiframe" src="https://www.youtube.com/subscribe_embed?channelid=">
+            </iframe>
+        </div>
+        <div class="examplecontainer">
+            <div class="example">
+                <div class="examplediv sameaccount"></div>
+                <div class="exampletext">Same account</div>
+            </div>
+            <div class="example">
+                <div class="examplediv notsubscribed"></div>
+                <div class="exampletext">Not subscribed</div>
+            </div>
+            <div class="example">
+                <div class="examplediv subscribed"></div>
+                <div class="exampletext">Subscribed!</div>
+            </div>
+        </div>
+    </div>
+    <svg style="display:none">
+        <filter id="colorMap">
+            <feColorMatrix type="matrix" values="0 1 0 0 0 3 2 2 -2 0 0 0 0 0 0 0 0 0 2 0">
+            </feColorMatrix>
+        </filter>
+    </svg>
+</body>
+
+</html>
